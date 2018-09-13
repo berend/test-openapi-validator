@@ -1,0 +1,63 @@
+{
+   "openapi": "3.0.0",
+   "info": {
+      "title": "test validation",
+      "version": "1"
+   },
+   "paths": {
+      "/cars": {
+         "post": {
+            "tags": [
+               "car"
+            ],
+            "requestBody": {
+               "required": true,
+               "content": {
+                  "application/json": {
+                     "schema": {
+                        "type": "object",
+                        "properties": {
+                           "name": {
+                              "type": "string"
+                           },
+                           "brand": {
+                              "type": "string"
+                           },
+                           "ps": {
+                              "type": "integer"
+                           }
+                        },
+                        "required": [
+                           "name",
+                           "brand"
+                        ]
+                     },
+                     "example": {
+                        "name": "MyCar",
+                        "brand": "BMW",
+                        "ps": 120
+                     }
+                  }
+               }
+            },
+            "responses": {
+               "200": {
+                  "description": "New car created",
+                  "content": {
+                     "application/json": {
+                        "schema": {
+                           "type": "object",
+                           "properties": {
+                              "message": {
+                                 "type": "string"
+                              }
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}
